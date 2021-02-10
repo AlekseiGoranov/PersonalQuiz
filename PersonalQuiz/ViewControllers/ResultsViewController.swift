@@ -9,9 +9,6 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     
-    // Передать сюда массив с ответами
-    // Определить наиболее часто встречающийся тип животного
-    // Отобразить результат в соответсвии с этим животным.
 
     @IBOutlet weak var whoAreYouLabel: UILabel!
     @IBOutlet weak var whoAreYouDescriptionLabel: UILabel!
