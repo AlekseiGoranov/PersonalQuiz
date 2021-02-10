@@ -18,11 +18,22 @@ class ResultsViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setHidesBackButton(true, animated: false)
-        whoAreYouLabel.text = answers.first?.type.rawValue.lowercased()
-        whoAreYouDescriptionLabel.text = answers.first?.type.definition
+        sortAnswers()
     }
+}
 
+extension ResultsViewController {
+    private func sortAnswers() {
+        let mappedAnswers = answers.map { ($0, 1) }
+        let counts = Dictionary(mappedAnswers, uniquingKeysWith: +)
+        let sortedOne = counts.sorted{ (first, last) -> Bool in
+            return first.value >= last.value
+        }
+        whoAreYouLabel.text = sortedOne.first?.key.type.rawValue.lowercased()
+        whoAreYouDescriptionLabel.text = sortedOne.first?.key.type.definition
+    }
 }

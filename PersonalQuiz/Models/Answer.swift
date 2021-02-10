@@ -5,7 +5,7 @@
 //  Created by Alexey Efimov on 05.02.2021.
 //
 
-struct Answer {
+struct Answer: Hashable {
     let text: String
     let type: AnimalType
 }
